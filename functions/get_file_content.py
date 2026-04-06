@@ -26,14 +26,15 @@ def get_file_content(working_directory, file_path):
 
 schema_get_file_content = types.FunctionDeclaration(
     name="get_file_content",
-    description="Lists files in a specified directory relative to the working directory, providing file size and directory status",
+    description="Gets the content of a specified file relative to the working directory.",
     parameters=types.Schema(
         type=types.Type.OBJECT,
         properties={
-            "directory": types.Schema(
+            "file_path": types.Schema(
                 type=types.Type.STRING,
-                description="Directory path to list files from, relative to the working directory (default is the working directory itself)",
+                description="The file path to get the file content from.",
             ),
         },
+        required=["file_path"],
     ),
 )
